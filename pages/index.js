@@ -1,17 +1,10 @@
 import Head from 'next/head';
-import { table, minifyRecords } from './api/utils/airtable';
-import { DataItemsContext } from '../contexts/dataContext';
 import Form from '../components/Form';
-import { useEffect, useContext, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 
-export default function Home({ initialDataItems }) {
-
-  const { dataItems, setDataItems } = useContext(DataItemsContext);
+export default function Home() {
   const [link, setLink] = useState("");
-  useEffect(() => {
-    setDataItems(initialDataItems)
-  }, [])
   return (
     <div className="flex flex-col max-w-3xl m-auto">
       <Head>
@@ -51,22 +44,4 @@ export default function Home({ initialDataItems }) {
       </footer>
     </div>
   );
-}
-
-export async function getServerSideProps() {
-  try {
-    let dataItems = await table.select({}).firstPage();
-    return {
-      props: {
-        initialDataItems: minifyRecords(dataItems)
-      }
-    }
-  } catch (e) {
-    console.log(e);
-    return {
-      props: {
-        e: 'eek'
-      }
-    }
-  }
 }
