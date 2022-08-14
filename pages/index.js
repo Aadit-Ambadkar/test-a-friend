@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Form from '../components/Form';
 import { useState } from 'react';
 import Link from 'next/link';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const [link, setLink] = useState("");
@@ -33,15 +34,7 @@ export default function Home() {
           ""
       }
 
-      <footer className="bg-white mt-3">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div>
-              <div className="text-slate-600">&copy; Aadit Ambadkar</div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
