@@ -11,14 +11,14 @@ export default function Form(props) {
     return (
         <form className="my-4 p-4 bg-white">
             <div className="mb-6">
-                <label for="name" className="block mb-2 text-sm font-medium text-slate-900 dark:text-slate-600">Your Name</label>
+                <label htmlFor="name" className="block mb-2 text-sm font-medium text-slate-900 dark:text-slate-600">Your Name</label>
                 <input onChange={(event) => {
                     setName(event.target.value);
                 }} type="text" id="name" className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
             </div>
 
             <div className="mb-6">
-                <label for="question" className="block mb-2 text-sm font-medium text-slate-900 dark:text-slate-600">The Question</label>
+                <label htmlFor="question" className="block mb-2 text-sm font-medium text-slate-900 dark:text-slate-600">The Question</label>
                 <input onChange={(event) => {
                     setQuestion(event.target.value);
                 }} type="text" id="question" className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
@@ -26,7 +26,7 @@ export default function Form(props) {
 
 
             <div className="mb-6">
-                <label for="answer" className="block mb-2 text-sm font-medium text-slate-900 dark:text-slate-600">The Answer</label>
+                <label htmlFor="answer" className="block mb-2 text-sm font-medium text-slate-900 dark:text-slate-600">The Answer</label>
                 <input onChange={(event) => {
                     setAnswer(event.target.value);
                 }} type="text" id="answer" className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
@@ -44,7 +44,7 @@ export default function Form(props) {
                             'Content-Type': 'application/json',
                         },
                     };
-                    let req = await fetch("http://localhost:3000/api/addRow", requestOptions);
+                    let req = await fetch("/api/addRow", requestOptions);
                     let body = await req.json();
                     
                     setLink(body);
