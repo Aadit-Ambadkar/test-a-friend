@@ -14,3 +14,7 @@ const getMinifiedRecord = (record) => {
 };
 
 export { table, getMinifiedRecord, minifyRecords };
+
+export default async (req, res) => {
+    res.status(404).json({ message: 'Not Found' });
+}
